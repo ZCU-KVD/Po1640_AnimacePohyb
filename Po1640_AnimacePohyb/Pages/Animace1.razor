@@ -1,0 +1,15 @@
+﻿@page "/animace1"
+
+<PageTitle>Animace základ</PageTitle>
+
+<div class="container">
+	<div class="postava" style="@Postava?.Style">
+		<p class="postavaPopis">@Postava?.Jmeno</p>
+		<img src="@Postava?.Obrazek" style="position:relative; width:100%;" alt="Postava" />
+		<p style="left:-10px; position:relative">@Postava?.AktualniPozice</p>
+	</div>
+</div>
+
+@code {
+
+}

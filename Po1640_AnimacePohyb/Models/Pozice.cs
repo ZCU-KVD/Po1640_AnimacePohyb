@@ -10,7 +10,7 @@
 			ViditelnostProcenta = viditelnostProcenta;
 		}
 
-		private int PozX { get;  }
+		public int PozX { get;  }
 		private int PozY { get;  }
 		public int VelikostObrProcenta { get; }
 		private int ViditelnostProcenta { get; }

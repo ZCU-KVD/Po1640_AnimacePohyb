@@ -13,7 +13,10 @@
 		public string Jmeno { get; }
 		public int AktualniPozice { get; private set; } = -1;
 		private int ObrazekWidthDefault { get; }
-
+		
+		private bool smerVpred = true; 
+		private bool HlavaVpravo { get; set; } = true;
+		public string TransformRotateY => HlavaVpravo ? "transform: rotateY(0deg);" : "transform: rotateY(180deg);";
 		private List<Pozice> PoziceList { get; } = new List<Pozice>();
 
 		public string Style
@@ -41,8 +44,19 @@
 		}
 
 		public void Presun()
-		{ 
-			AktualniPozice += 1;
+		{
+			if (AktualniPozice == 0)
+			{
+				smerVpred = true;
+			}
+			else if (AktualniPozice >= PoziceList.Count - 1)
+			{
+				smerVpred = false;
+			}
+			var predchoziPozice = AktualniPozice;
+			AktualniPozice += smerVpred ? 1 : -1;
+			if(predchoziPozice>=0)
+				HlavaVpravo = PoziceList[predchoziPozice].PozX < PoziceList[AktualniPozice].PozX;
 		}
 		#endregion
 	}
